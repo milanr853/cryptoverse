@@ -18,14 +18,10 @@
 
 .logoHolder {
     width: 100%;
-    /* color: #1893da; */
     font-size: 18px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    /* cursor: pointer; */
-    /* background:red */
-    position: relative;
+    justify-content: center;
 }
 
 .divider {
@@ -79,12 +75,10 @@
 
 
 .bi-list {
-    position: absolute;
-    top: 0;
-    left: 0;
     font-size: 22px;
-    visibility: hidden;
+    display: none;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 
@@ -129,11 +123,11 @@
 
 @media screen and (max-width:750px) {
     .navOptions {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .navLogo {
-        font-size: 28px;
+        font-size: 26px;
     }
 }
 
@@ -145,7 +139,7 @@
     }
 
     .navLogo {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .menuOptions {
@@ -155,17 +149,17 @@
 
     .wrapper {
         flex-direction: column;
-        /* align-items: flex-end; */
+        /* align-items: flex-start; */
         justify-content: center;
     }
 
     .logoHolder {
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .bi-list {
-        visibility: visible;
+        display: block;
     }
 
     .menuOptions {

@@ -6,7 +6,7 @@ import { useState } from "react"
 
 
 import Styles from '../../Styles';
-const { darkModeColors, lightModeColors, delay } = Styles()
+const { darkModeColors, lightModeColors } = Styles()
 const { lborderCol, llogoCol, lnavBarBg } = lightModeColors
 const { dborderCol, dlogoCol, dnavBarBg } = darkModeColors
 
@@ -33,12 +33,12 @@ export const Navbar = () => {
     const generateHamBar = () => {
         const hamBox = document.querySelector(".hamburgerMenuBox")
         if (!onHamBar) {
-            hamBox.style.transition = delay
+            hamBox.style.transition = "0.5s"
             hamBox.style.top = "100px"
             setOnHamBar(true)
         }
         else {
-            hamBox.style.transition = delay
+            hamBox.style.transition = "0.5s"
             hamBox.style.top = "-200px"
             setOnHamBar(false)
         }
@@ -88,26 +88,26 @@ export const Navbar = () => {
         }
         else {
             if (bi) {
-                bi.style.transition = delay
+                bi.style.transition = "0.5s"
                 bi.style.color = "white"
             }
             if (nav) {
-                nav.style.transition = delay
+                nav.style.transition = "0.5s"
                 nav.style.backgroundColor = lnavBarBg
             }
             if (hamBox) {
-                hamBox.style.transition = delay
+                hamBox.style.transition = "0.5s"
                 hamBox.style.backgroundColor = lnavBarBg
             }
             if (logo) {
-                logo.style.transition = delay
+                logo.style.transition = "0.5s"
                 logo.style.color = llogoCol
             }
             navoptions.forEach((item) => {
-                item.style.transition = delay
+                item.style.transition = "0.5s"
                 item.style.color = "white"
             })
-            divider.style.transition = delay
+            divider.style.transition = "0.5s"
             divider.style.backgroundColor = lborderCol
         }
     }, [colorMode])

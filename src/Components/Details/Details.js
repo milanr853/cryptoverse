@@ -14,7 +14,7 @@ import { LineChart } from "../LineChart/LineChart"
 
 
 import Styles from '../../Styles';
-const { darkModeColors, lightModeColors, delay } = Styles()
+const { darkModeColors, lightModeColors } = Styles()
 const { lcontainerCol, ltextCol } = lightModeColors
 const { dcontainerCol, dtextCol } = darkModeColors
 
@@ -61,16 +61,16 @@ export const Details = () => {
         }
         else {
             if (parentWrapper) {
-                parentWrapper.style.transition = delay
+                parentWrapper.style.transition = "0.5s"
                 parentWrapper.style.backgroundColor = lcontainerCol
             }
             if (DetailsWrapper_PARENT) {
-                DetailsWrapper_PARENT.style.transition = delay
+                DetailsWrapper_PARENT.style.transition = "0.5s"
                 DetailsWrapper_PARENT.style.color = ltextCol
             }
             if (links) {
                 links.forEach((link) => {
-                    link.style.transition = delay
+                    link.style.transition = "0.5s"
                     link.style.color = "dodgerblue"
                 })
             }

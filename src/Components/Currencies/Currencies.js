@@ -7,17 +7,32 @@ import { useState } from "react"
 import { useRef } from "react"
 import React from "react"
 
+import { useContext } from "react"
+import { LimitItemsContext } from "../../Context/LimitItemsContext"
 
 import Styles from '../../Styles';
+import { useLocation } from "react-router-dom"
 
-const { darkModeColors, lightModeColors, delay } = Styles()
+const { darkModeColors, lightModeColors } = Styles()
 const { lborderCol, lcontainerCol, ltextCol } = lightModeColors
 const { dborderCol, dcontainerCol, dtextCol } = darkModeColors
 
 
 
 
-const Currencies = ({ Limited }) => {
+const Currencies = () => {
+
+
+    const { Limited, setLimited } = useContext(LimitItemsContext)
+
+
+    const path = useLocation().pathname
+    useEffect(() => {
+        if (path === "/currencies" || path === "/news") {
+            setLimited(false)
+        }
+    }, [])
+
 
     const colorMode = useSelector(store => store.changeColorReducer)
 
@@ -61,7 +76,6 @@ const Currencies = ({ Limited }) => {
 
 
 
-    // ----------------------------
     // ____________EVENT HANDLER____________
     const handleChange = () => {
         setSearchTerm(inputRef.current.value)
@@ -90,15 +104,15 @@ const Currencies = ({ Limited }) => {
         }
         else {
             grid.forEach((item) => {
-                item.style.transition = delay
+                item.style.transition = "0.5s"
                 item.style.backgroundColor = lcontainerCol
             })
             coinStatsValues.forEach((item) => {
-                item.style.transition = delay
+                item.style.transition = "0.5s"
                 item.style.color = ltextCol
             })
             dividers.forEach((item) => {
-                item.style.transition = delay
+                item.style.transition = "0.5s"
                 item.style.backgroundColor = lborderCol
             })
         }

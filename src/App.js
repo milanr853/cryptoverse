@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { LimitItemsContextProvider } from './Context/LimitItemsContext';
+
 import Styles from './Styles';
 const { darkModeColors, lightModeColors, delay } = Styles()
 const { lbg } = lightModeColors
@@ -74,30 +76,31 @@ function App() {
 
 
   return (
-    <Router>
+    <LimitItemsContextProvider>
+      <Router>
+
+        <div className="app">
+          <div className="buttonHolder">
+            <div className="button" onClick={changeMode}></div>
+          </div>
 
 
-      <div className="app">
-        <div className="buttonHolder">
-          <div className="button" onClick={changeMode}></div>
+
+          <Navbar />
+          <div className="extra"></div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/currencies' element={<Currencies />} />
+            <Route path='/exchanges' element={<Exchanges />} />
+            <Route path='/news' element={<News />} />
+            <Route path='/currency/details/:id' element={<Details />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
         </div>
 
 
-
-        <Navbar />
-        <div className="extra"></div>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/currencies' element={<Currencies />} />
-          <Route path='/exchanges' element={<Exchanges />} />
-          <Route path='/news' element={<News />} />
-          <Route path='/currency/details/:id' element={<Details />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </div>
-
-
-    </Router>
+      </Router>
+    </LimitItemsContextProvider>
   );
 }
 

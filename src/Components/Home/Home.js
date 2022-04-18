@@ -10,12 +10,14 @@ import Currencies from "../Currencies/Currencies"
 import News from "../News/News"
 import { Link } from "react-router-dom"
 
-import { useState } from "react"
 import React from "react"
 
+import { useContext } from "react"
+import { LimitItemsContext } from "../../Context/LimitItemsContext"
 
 import Styles from '../../Styles';
-const { darkModeColors, lightModeColors, delay } = Styles()
+import { useLocation } from "react-router-dom"
+const { darkModeColors, lightModeColors } = Styles()
 const { ltextCol } = lightModeColors
 const { dtextCol } = darkModeColors
 
@@ -23,10 +25,20 @@ const { dtextCol } = darkModeColors
 
 const Home = () => {
 
+    const { setLimited } = useContext(LimitItemsContext)
+
+
+    // Setting Limited Items
+    const path = useLocation().pathname
+    useEffect(() => {
+        if (path !== "/currencies" || path != "/news") {
+            setLimited(true)
+        }
+    }, [])
+
 
     const colorMode = useSelector(store => store.changeColorReducer)
 
-    const [Limited, setLimited] = useState(true)
 
 
 
@@ -45,14 +57,6 @@ const Home = () => {
         fetchData()
     }, [])
 
-
-
-    const showMoreCurrencies = () => {
-        setLimited(false)
-    }
-    const showMoreNews = () => {
-        setLimited(false)
-    }
 
 
 
@@ -77,11 +81,11 @@ const Home = () => {
         }
         else {
             homeParentWrapper.forEach((item) => {
-                item.style.transition = delay
+                item.style.transition = "0.5s"
                 item.style.color = ltextCol
             })
             Links.forEach((link) => {
-                link.style.transition = delay
+                link.style.transition = "0.5s"
                 link.style.color = "dodgerblue"
             })
         }
@@ -125,15 +129,15 @@ const Home = () => {
 
                         <div style={{ display: "flex", width: "100%", justifyContent: "space-between", alignItems: "center" }} className="sectionDivider">
                             <h2 className="sectionDividerHeading">Top 10 Crypto Currencies in the World</h2>
-                            <Link to='/currencies' className='showMore' onClick={showMoreCurrencies}>Show More</Link>
+                            <Link to='/currencies' className='showMore' >Show More</Link>
                         </div>
-                        <Currencies Limited={Limited} />
+                        <Currencies />
 
                         <div style={{ display: "flex", width: "100%", justifyContent: "space-between", alignItems: "center" }} className="sectionDivider">
                             <h2 className="sectionDividerHeading">Top Crypto News all around the world</h2>
-                            <Link to='/news' className='showMore' onClick={showMoreNews}>Show More</Link>
+                            <Link to='/news' className='showMore' >Show More</Link>
                         </div>
-                        <News Limited={Limited} />
+                        <News />
 
                     </div>
 

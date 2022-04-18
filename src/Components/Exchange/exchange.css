@@ -99,3 +99,19 @@
         margin-top: 0;
     }
 }
+
+
+@media screen and (max-width:400px) {
+    .exchangesHeader {
+        width: 95%;
+        text-align: center;
+    }
+
+    .exchangesWrapper {
+        box-sizing: border-box;
+        padding-right: 5%;
+        text-align: center;
+        font-size: small;
+    }
+
+}

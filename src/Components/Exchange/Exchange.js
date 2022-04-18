@@ -9,7 +9,7 @@ import { useSelector } from "react-redux"
 
 import Styles from '../../Styles';
 import { useMemo } from "react"
-const { darkModeColors, lightModeColors, delay } = Styles()
+const { darkModeColors, lightModeColors } = Styles()
 const { lbg, lborderCol, lcontainerCol, ltextCol } = lightModeColors
 const { dbg, dborderCol, dcontainerCol, dtextCol } = darkModeColors
 
@@ -58,19 +58,19 @@ export const Exchanges = () => {
         }
         else {
             exchangesWrapper.forEach(element => {
-                element.style.transition = delay
+                element.style.transition = "0.5s"
                 element.style.color = ltextCol
                 element.style.backgroundColor = lcontainerCol
                 element.style.borderBottom = `1px solid ${lborderCol}`
             })
             exchangeMiddleWrapper.forEach((element) => {
-                element.style.transition = delay
+                element.style.transition = "0.5s"
                 element.style.backgroundColor = lbg
                 element.style.color = ltextCol
             })
 
             squareDown.forEach((element) => {
-                element.style.transition = delay
+                element.style.transition = "0.5s"
                 element.style.color = ltextCol
             })
             exchangesHeader.style.color = ltextCol
@@ -85,14 +85,14 @@ export const Exchanges = () => {
 
         const item = e.target.parentNode.nextSibling
         if (extend) {
-            item.style.transition = delay
+            item.style.transition = "0.5s"
             item.style.boxSizing = "border-box "
             item.style.padding = "10px 15px"
             item.style.height = "150px"
             setExtend(false)
         }
         else {
-            item.style.transition = delay
+            item.style.transition = "0.5s"
             item.style.padding = "0 15px"
             item.style.height = "0"
             setExtend(true)

@@ -8,13 +8,29 @@ import API from "../../API/API"
 
 import React from "react"
 
+import { useContext } from "react"
+import { LimitItemsContext } from "../../Context/LimitItemsContext"
+
 import Styles from '../../Styles';
-const { darkModeColors, lightModeColors, delay } = Styles()
+import { useLocation } from "react-router-dom"
+const { darkModeColors, lightModeColors } = Styles()
 const { lcontainerCol, ltextCol } = lightModeColors
 const { dcontainerCol, dtextCol } = darkModeColors
 
 
-const News = ({ Limited }) => {
+const News = () => {
+
+    const { Limited, setLimited } = useContext(LimitItemsContext)
+
+
+
+    const path = useLocation().pathname
+    useEffect(() => {
+        if (path === "/currencies" || path === "/news") {
+            setLimited(false)
+        }
+    }, [])
+
 
 
     const colorMode = useSelector(store => store.changeColorReducer)
@@ -26,6 +42,7 @@ const News = ({ Limited }) => {
     // -----------------------------------------------------------------------------------
     // ___Sending News Data Array To Store || Dispatch
     useEffect(() => {
+        console.log("news api called")
         const fetchData = async () => {
             const response = await NewsApi("Cryptocurrency", 100)
             dispatch(getNewsData_Action(response))
@@ -160,7 +177,7 @@ const News = ({ Limited }) => {
         }
         else {
             newsWrapper.forEach((item) => {
-                item.style.transition = delay
+                item.style.transition = "0.5s"
                 item.style.backgroundColor = lcontainerCol
                 item.style.color = ltextCol
             })
