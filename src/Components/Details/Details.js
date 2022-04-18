@@ -14,9 +14,9 @@ import { LineChart } from "../LineChart/LineChart"
 
 
 import Styles from '../../Styles';
-const {darkModeColors,lightModeColors,delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol,lnavBarBg} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol,dnavBarBg} = darkModeColors
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { lcontainerCol, ltextCol } = lightModeColors
+const { dcontainerCol, dtextCol } = darkModeColors
 
 
 export const Details = () => {

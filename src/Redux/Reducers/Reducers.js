@@ -3,42 +3,42 @@ const initialNewsDataState = []
 
 const initialDataObj = {}
 
-export const getNewsData_Reducer = (state=initialNewsDataState,{type,newsArray})=>{
+export const getNewsData_Reducer = (state = initialNewsDataState, { type, newsArray }) => {
     // console.log(newsArray)
-    if(type==="GET_NEWS_DATA"){
+    if (type === "GET_NEWS_DATA") {
         return [...newsArray]
     }
     else return state
 }
 
 
-export const getCoinsAndStats_Reducer = (state=initialDataObj,{type,dataObj})=>{
-    if(type==="GET_COINS_AND_STATS_DATA"){
-        return {...dataObj}
+export const getCoinsAndStats_Reducer = (state = initialDataObj, { type, dataObj }) => {
+    if (type === "GET_COINS_AND_STATS_DATA") {
+        return { ...dataObj }
     }
     else return state
 }
 
 
-export const displayCryptosOverPage_Reducer = (state={},{type})=>{
-if(type==="GET_UPDATED"){
-    return {display:"block",limit:100}
-}
-if(type==="GET_DEFAULT"){
-    return {display:"none",limit:10}
-}
-return state
+export const displayCryptosOverPage_Reducer = (state = {}, { type }) => {
+    if (type === "GET_UPDATED") {
+        return { display: "block", limit: 100 }
+    }
+    if (type === "GET_DEFAULT") {
+        return { display: "none", limit: 10 }
+    }
+    return state
 }
 
 
-export const displayNewsOverPage_Reducer = (state={},{type})=>{
-if(type==="GET_NEWS_VALUES"){
-    return {count:100,display:"block"}
-}
-if(type==="GET_NEWS_DEFAULT"){
-    return {count:3,display:"none"}
-}
-return state
+export const displayNewsOverPage_Reducer = (state = {}, { type }) => {
+    if (type === "GET_NEWS_VALUES") {
+        return { count: 100, display: "block" }
+    }
+    if (type === "GET_NEWS_DEFAULT") {
+        return { count: 3, display: "none" }
+    }
+    return state
 }
 
 
@@ -49,12 +49,12 @@ return state
 //     else return state
 // }
 
-export const changeColorReducer = (state='dark',{type})=>{
-    if(type==="CHANGE_TO_LIGHT"){
+export const changeColorReducer = (state = 'dark', { type }) => {
+    if (type === "CHANGE_TO_LIGHT") {
         return "light"
     }
-    else if(type==="CHANGE_TO_DARK"){
+    else if (type === "CHANGE_TO_DARK") {
         return "dark"
     }
     else return state
-}
+} 

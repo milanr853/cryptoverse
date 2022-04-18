@@ -1,10 +1,10 @@
 import './App.css';
 
 import { Navbar } from './Components/Navbar/Navbar';
-import { News } from "./Components/News/News"
+import News from "./Components/News/News"
 import { Exchanges } from "./Components/Exchange/Exchange"
-import { Currencies } from "./Components/Currencies/Currencies"
-import { Home } from "./Components/Home/Home"
+import Currencies from "./Components/Currencies/Currencies"
+import Home from "./Components/Home/Home"
 import { Details } from "./Components/Details/Details"
 import Error from './Components/Error/Error';
 import { changeToDark, changeToLight } from './Redux/Actions/Actions';
@@ -14,10 +14,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Styles from './Styles';
-import { useLocation } from 'react-router-dom';
-const {darkModeColors,lightModeColors,delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol,lnavBarBg} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol,dnavBarBg} = darkModeColors
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { lbg } = lightModeColors
+const { dbg } = darkModeColors
 
 
 
@@ -26,8 +25,8 @@ function App() {
 
 
 
-    // ----------------------------
-    // SETTING HAM-BAR
+  // ----------------------------
+  // SETTING HAM-BAR
   const colorMode = useSelector(store => store.changeColorReducer)
 
   useEffect(() => {
@@ -49,7 +48,7 @@ function App() {
         app.style.transition = delay
         app.style.backgroundColor = lbg
       }
-            button.style.marginLeft = "62%"
+      button.style.marginLeft = "62%"
       button.style.transition = delay
       button.style.backgroundColor = "#333C83"
       buttonHolder.style.transition = delay
@@ -69,7 +68,7 @@ function App() {
   }
 
   // SETTING HAM-BAR
-    // ----------------------------
+  // ----------------------------
 
 
 
@@ -93,7 +92,7 @@ function App() {
           <Route path='/exchanges' element={<Exchanges />} />
           <Route path='/news' element={<News />} />
           <Route path='/currency/details/:id' element={<Details />} />
-          <Route path="*" element={<Error/>}/>
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
 

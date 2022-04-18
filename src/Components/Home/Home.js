@@ -2,25 +2,27 @@ import "./home.css"
 
 import { millify } from 'millify'
 import API from "../../API/API"
-import { getCoinsAndStats_Action} from "../../Redux/Actions/Actions"
+import { getCoinsAndStats_Action } from "../../Redux/Actions/Actions"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
-import { Currencies } from "../Currencies/Currencies"
-import { News } from "../News/News"
+import Currencies from "../Currencies/Currencies"
+import News from "../News/News"
 import { Link } from "react-router-dom"
 
 import { useState } from "react"
+import React from "react"
 
 
 import Styles from '../../Styles';
-const {darkModeColors,lightModeColors,delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol,lnavBarBg} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol,dnavBarBg} = darkModeColors
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { ltextCol } = lightModeColors
+const { dtextCol } = darkModeColors
 
 
 
-export const Home = () => {
+const Home = () => {
+
 
     const colorMode = useSelector(store => store.changeColorReducer)
 
@@ -131,8 +133,8 @@ export const Home = () => {
                             <h2 className="sectionDividerHeading">Top Crypto News all around the world</h2>
                             <Link to='/news' className='showMore' onClick={showMoreNews}>Show More</Link>
                         </div>
-                            <News Limited={Limited}/>
-                        
+                        <News Limited={Limited} />
+
                     </div>
 
                     : <h2 className="loading">Loading...</h2>
@@ -140,3 +142,7 @@ export const Home = () => {
         </>
     )
 }
+
+
+
+export default React.memo(Home)

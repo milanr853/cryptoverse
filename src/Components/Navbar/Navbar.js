@@ -6,9 +6,9 @@ import { useState } from "react"
 
 
 import Styles from '../../Styles';
-const {darkModeColors,lightModeColors,delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol,lnavBarBg} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol,dnavBarBg} = darkModeColors
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { lborderCol, llogoCol, lnavBarBg } = lightModeColors
+const { dborderCol, dlogoCol, dnavBarBg } = darkModeColors
 
 
 export const Navbar = () => {
@@ -47,7 +47,8 @@ export const Navbar = () => {
     // ----------------------------
 
 
-    const hideHambar = ()=>{
+    const hideHambar = () => {
+
         const hamBox = document.querySelector(".hamburgerMenuBox")
         hamBox.style.top = "-200px"
         setOnHamBar(false)

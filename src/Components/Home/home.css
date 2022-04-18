@@ -1,70 +1,75 @@
-.homeParentWrapperContainer{
+.homeParentWrapperContainer {
     width: 100%;
 }
 
-.home{
+.home {
     width: 100%;
 }
 
-.grid{
+.grid {
     max-width: 500px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 80px;
-    grid-row-gap:50px ;
-    grid-column-gap:25px ;
+    grid-row-gap: 50px;
+    grid-column-gap: 25px;
 
     /* margin: 25px 0; */
 }
-.gridItem{
+
+.gridItem {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.itemTitle{
+.itemTitle {
     font-size: 15px;
     font-weight: 400;
 }
-.itemValue{
+
+.itemValue {
     font-weight: 400;
 }
 
-.firstHeading{
+.firstHeading {
     font-weight: 400;
     margin-bottom: 20px;
     margin-top: 25px;
 }
 
-.sectionDividerHeading{
+.sectionDividerHeading {
     width: 70%;
 }
 
-.sectionDivider{
+.sectionDivider {
     margin: 40px 0;
 }
 
 @media screen and (max-width:750px) {
-    .sectionDivider{
+    .sectionDivider {
         font-size: 14px;
     }
-    .firstHeading{
+
+    .firstHeading {
         font-size: 26px;
     }
-    .itemValue{
+
+    .itemValue {
         font-size: 22px;
     }
-    .itemTitle{
+
+    .itemTitle {
         font-size: 15px;
     }
 }
 
 @media screen and (max-width:400px) {
-    .firstHeading{
+    .firstHeading {
         font-size: 25px;
     }
-    .itemTitle{
+
+    .itemTitle {
         font-size: 13px;
     }
 }
-

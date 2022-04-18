@@ -6,14 +6,16 @@ import { useDispatch, useSelector } from "react-redux"
 import { getCoinsAndStats_Action, getNewsData_Action } from "../../Redux/Actions/Actions"
 import API from "../../API/API"
 
+import React from "react"
 
 import Styles from '../../Styles';
-const {darkModeColors,lightModeColors,delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol} = darkModeColors
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { lcontainerCol, ltextCol } = lightModeColors
+const { dcontainerCol, dtextCol } = darkModeColors
 
 
-export const News = ({ Limited }) => {
+const News = ({ Limited }) => {
+
 
     const colorMode = useSelector(store => store.changeColorReducer)
 
@@ -47,7 +49,7 @@ export const News = ({ Limited }) => {
 
 
     const renderList = Limited ?
-        limitedNewsArray.length != 0 ? limitedNewsArray.map((news) => {
+        limitedNewsArray.length !== 0 ? limitedNewsArray.map((news) => {
 
 
             const { name, datePublished, description, image, provider } = news
@@ -69,7 +71,7 @@ export const News = ({ Limited }) => {
                     <div className="newsBottom">
                         <div className="postersInfo">
                             <div className="providersImageHolder">
-                                <img src={provider[0].image ? provider[0].image.thumbnail.contentUrl : 'https://bit.ly/3ndL2rH'} alt="" />
+                                <img src={provider[0].image ? provider[0].image.thumbnail.contentUrl : 'https://bit.ly/3ndL2rH'} alt="news-provider" />
                             </div>
                             <small className="providersName">{provider[0].name}</small>
                         </div>
@@ -80,6 +82,7 @@ export const News = ({ Limited }) => {
         }) : []
         :
         NewsArray ? NewsArray.map((news) => {
+
 
 
             const { name, datePublished, description, image, provider } = news
@@ -134,6 +137,7 @@ export const News = ({ Limited }) => {
     // ----------------------------
     //Rendering Options List ||  MAP of currency names
     const renderOptions = coinOptions ? coinOptions.map(coin => {
+
         return (
             <option value={coin} key={coin}>{coin}</option>
         )
@@ -170,6 +174,7 @@ export const News = ({ Limited }) => {
 
     // ____________EVENT HANDLERS____________
     const handleChange = async (e) => {
+
         const response = await NewsApi(e.target.value, 100)
         dispatch(getNewsData_Action(response))
     }
@@ -181,7 +186,7 @@ export const News = ({ Limited }) => {
     // -----------------------------------------------------------------------------------
     return (
         <div className="newsParentWrapperContainer">
-            {NewsArray.length != 0
+            {NewsArray.length !== 0
                 ? <>
                     <div className="newsSearchHolder">
                         <select name="select" className="select" onChange={handleChange} style={{ display: Limited ? "none" : "block" }}>
@@ -198,3 +203,7 @@ export const News = ({ Limited }) => {
         </div>
     )
 }
+
+
+
+export default React.memo(News)

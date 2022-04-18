@@ -1,4 +1,4 @@
-.errorContainer{
+.errorContainer {
     margin-top: 100px;
     width: 100%;
     height: calc(100vh - 200px);
@@ -9,7 +9,7 @@
     flex-direction: column;
 }
 
-.fa-frown-open{
+.fa-frown-open {
     font-size: 90px;
     margin-bottom: 40px;
     color: #EEEEEE;

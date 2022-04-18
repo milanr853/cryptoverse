@@ -4,20 +4,25 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useState } from "react"
-
+import { useRef } from "react"
+import React from "react"
 
 
 import Styles from '../../Styles';
-const {darkModeColors,lightModeColors, delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol,lnavBarBg} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol,dnavBarBg} = darkModeColors
+
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { lborderCol, lcontainerCol, ltextCol } = lightModeColors
+const { dborderCol, dcontainerCol, dtextCol } = darkModeColors
 
 
 
-export const Currencies = ({ Limited }) => {
+
+const Currencies = ({ Limited }) => {
+
     const colorMode = useSelector(store => store.changeColorReducer)
 
 
+    const inputRef = useRef(null)
 
 
     const cryptosArr = useSelector((store) => store.getCoinsAndStats_Reducer.coins)
@@ -58,8 +63,8 @@ export const Currencies = ({ Limited }) => {
 
     // ----------------------------
     // ____________EVENT HANDLER____________
-    const handleChange = (e) => {
-        setSearchTerm(e.target.value)
+    const handleChange = () => {
+        setSearchTerm(inputRef.current.value)
     }
     // ----------------------------
 
@@ -113,7 +118,7 @@ export const Currencies = ({ Limited }) => {
 
     const renderList =
         Limited ?
-            limitedItems.length != 0 ? limitedItems.map((currency) => {
+            limitedItems.length !== 0 ? limitedItems.map((currency) => {
                 return (
                     <Link to={`/currency/details/${currency.uuid}`} className="coinGridItem" key={currency.uuid}>
                         <div className="coinHolder">
@@ -133,7 +138,7 @@ export const Currencies = ({ Limited }) => {
 
             }) : []
             :
-            cryptosListAfterSearch.length != 0 ? cryptosListAfterSearch.map((currency) => {
+            cryptosListAfterSearch.length !== 0 ? cryptosListAfterSearch.map((currency) => {
                 return (
                     <Link to={`/currency/details/${currency.uuid}`} className="coinGridItem" key={currency.uuid}>
                         <div className="coinHolder">
@@ -162,10 +167,10 @@ export const Currencies = ({ Limited }) => {
     return (
         <div className="currenciesParentWrapperContainer">
 
-            {cryptosListAfterSearch.length != 0
+            {cryptosListAfterSearch.length !== 0
                 ? <>
                     <div className="searchHolder" >
-                        <input type="text" placeholder="Search Coin" className="search" onChange={handleChange} style={{ display: Limited ? "none" : "block" }} />
+                        <input type="text" placeholder="Search Coin" className="search" onChange={handleChange} style={{ display: Limited ? "none" : "block" }} ref={inputRef} />
                     </div>
                     <div className="coinsGrid">
                         {renderList}
@@ -176,3 +181,9 @@ export const Currencies = ({ Limited }) => {
         </div>
     )
 }
+
+
+
+
+
+export default React.memo(Currencies)

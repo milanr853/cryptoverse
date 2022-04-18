@@ -8,13 +8,16 @@ import { useSelector } from "react-redux"
 
 
 import Styles from '../../Styles';
-const {darkModeColors,lightModeColors,delay} = Styles()
-const {lbg,lborderCol,lcontainerCol,llogoCol,ltextCol,lnavBarBg} = lightModeColors
-const {dbg,dborderCol,dcontainerCol,dlogoCol,dtextCol,dnavBarBg} = darkModeColors
+import { useMemo } from "react"
+const { darkModeColors, lightModeColors, delay } = Styles()
+const { lbg, lborderCol, lcontainerCol, ltextCol } = lightModeColors
+const { dbg, dborderCol, dcontainerCol, dtextCol } = darkModeColors
 
 
 export const Exchanges = () => {
-    const colorMode = useSelector(store => store.changeColorReducer)
+
+    let colorMode = useSelector(store => store.changeColorReducer)
+    colorMode = useMemo(() => colorMode, [colorMode])
 
     const [arr, setArr] = useState([])
     const [extend, setExtend] = useState(true)
@@ -103,7 +106,7 @@ export const Exchanges = () => {
 
 
     const renderList = arr ? arr.map((item) => {
-        const { uuid, name, change, iconUrl, symbol } = item
+        const { uuid, change, iconUrl, symbol } = item
         return (
             <div className="outerWrapper" key={uuid}>
                 <div className="exchangesWrapper" >
@@ -138,7 +141,7 @@ export const Exchanges = () => {
 
             <div className="exchangesHeader">
                 {
-                    renderList.length != 0
+                    renderList.length !== 0
                         ? <>
                             <p>Exchanges</p>
                             <p>Trade</p>
@@ -148,7 +151,7 @@ export const Exchanges = () => {
                         : <></>
                 }
             </div>
-            {renderList.length != 0?renderList:<></>}
+            {renderList.length !== 0 ? renderList : <></>}
 
 
         </div>

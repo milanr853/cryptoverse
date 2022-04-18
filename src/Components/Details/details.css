@@ -3,14 +3,14 @@
 
 
 
-.DetailsWrapper_PARENT{
+.DetailsWrapper_PARENT {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 
-.iconholder{
+.iconholder {
     width: 125px;
     height: 125px;
     /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
@@ -23,7 +23,7 @@
     height: 100%;
 }
 
-.parentWrapper{
+.parentWrapper {
     width: 100% - 40px;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@
 }
 
 
-.topWrapper{
+.topWrapper {
     height: 200px;
     width: 100%;
     /* background-color: antiquewhite; */
@@ -45,7 +45,7 @@
     border-bottom: 1px solid rgb(216, 216, 216);
 }
 
-.middleWrapper{
+.middleWrapper {
     /* height: 150px; */
     width: 100%;
     /* background-color:bisque; */
@@ -54,17 +54,19 @@
 }
 
 
-.middleLeft,.middleRight{
-height: 400px;
-width: 300px;
-display: flex;
-/* background-color: antiquewhite; */
-/* padding-bottom: 40px; */
+.middleLeft,
+.middleRight {
+    height: 400px;
+    width: 300px;
+    display: flex;
+    /* background-color: antiquewhite; */
+    /* padding-bottom: 40px; */
 }
 
 
 
-.properties,.values{
+.properties,
+.values {
     /* background-color: orangered; */
     width: 100%;
     height: 100%;
@@ -74,40 +76,42 @@ display: flex;
 
 }
 
-.values{
-    align-items:flex-end;
+.values {
+    align-items: flex-end;
 
 }
 
 
-.extradata{
+.extradata {
     width: 100%;
 }
 
-.links{
+.links {
     font-size: 20px;
     font-weight: 500;
 }
 
-.extradata p{
+.extradata p {
     margin-bottom: 20px;
 }
 
 
-.chartParentWrapperContainer{
+.chartParentWrapperContainer {
     width: 99%;
     margin: 50px 0;
 }
 
 
 
-@media screen and (max-width:1150px){
-    .middleWrapper{
+@media screen and (max-width:1150px) {
+    .middleWrapper {
         flex-direction: column;
         align-items: center;
-        
+
     }
-    .middleLeft,.middleRight{
+
+    .middleLeft,
+    .middleRight {
         width: 100%;
     }
 }
@@ -122,34 +126,42 @@ display: flex;
 
 
 @media screen and (max-width:800px) {
-    .DetailsWrapper_PARENT{
+    .DetailsWrapper_PARENT {
         width: 100%;
     }
-    .middleWrapper{
+
+    .middleWrapper {
         flex-direction: row;
-        
+
     }
-    .parentWrapper{
+
+    .parentWrapper {
         padding: 0 50px;
     }
-    .middleLeft,.middleRight{
+
+    .middleLeft,
+    .middleRight {
         width: 250px;
     }
 }
 
 @media screen and (max-width: 750px) {
-    .middleWrapper{
+    .middleWrapper {
         flex-direction: column;
         align-items: center;
-        
+
     }
-    .middleLeft,.middleRight{
+
+    .middleLeft,
+    .middleRight {
         width: 350px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .middleLeft,.middleRight{
+
+    .middleLeft,
+    .middleRight {
         width: 250px;
     }
 }

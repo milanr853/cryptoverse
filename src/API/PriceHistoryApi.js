@@ -1,6 +1,6 @@
 
 
-const PriceHistoryApi = (id="Qwsogvtv82FCd",timePeriod="24h") => {
+const PriceHistoryApi = (id = "Qwsogvtv82FCd", timePeriod = "24h") => {
     const fetch = require('node-fetch');
 
     const url = `https://coinranking1.p.rapidapi.com/coin/${id}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=${timePeriod}`;
@@ -20,4 +20,4 @@ const PriceHistoryApi = (id="Qwsogvtv82FCd",timePeriod="24h") => {
 }
 
 
-export default PriceHistoryApi
+export default PriceHistoryApi 

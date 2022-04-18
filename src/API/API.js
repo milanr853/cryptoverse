@@ -15,8 +15,8 @@ const API = (limit) => {
     };
 
     return fetch(url, options)
-            .then(res => res.json())
-            .then(data => data.data)
+        .then(res => res.json())
+        .then(data => data.data)
 }
 
 export default API
