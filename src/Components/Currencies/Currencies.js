@@ -181,11 +181,11 @@ const Currencies = () => {
     return (
         <div className="currenciesParentWrapperContainer">
 
+            <div className="searchHolder" >
+                <input type="text" placeholder="Search Coin" className="search" onChange={handleChange} style={{ display: Limited ? "none" : "block" }} ref={inputRef} />
+            </div>
             {cryptosListAfterSearch.length !== 0
                 ? <>
-                    <div className="searchHolder" >
-                        <input type="text" placeholder="Search Coin" className="search" onChange={handleChange} style={{ display: Limited ? "none" : "block" }} ref={inputRef} />
-                    </div>
                     <div className="coinsGrid">
                         {renderList}
                     </div>

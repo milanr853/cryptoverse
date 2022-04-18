@@ -42,7 +42,6 @@ const News = () => {
     // -----------------------------------------------------------------------------------
     // ___Sending News Data Array To Store || Dispatch
     useEffect(() => {
-        console.log("news api called")
         const fetchData = async () => {
             const response = await NewsApi("Cryptocurrency", 100)
             dispatch(getNewsData_Action(response))
