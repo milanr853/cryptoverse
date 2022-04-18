@@ -10,7 +10,7 @@ const NewsApi = (category, count) => {
         headers: {
             'X-BingApis-SDK': 'true',
             'X-RapidAPI-Host': 'bing-news-search1.p.rapidapi.com',
-            'X-RapidAPI-Key': 'dcf77a8ffemshb56392b3ab8ff57p1c3b56jsnb0d55e7604d9'
+            'X-RapidAPI-Key': 'bbf72c94d5mshd637cc590388f27p1a130djsn13d022119474'
         }
     };
 
